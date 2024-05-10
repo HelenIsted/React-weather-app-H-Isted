@@ -1,0 +1,13 @@
+.Weather {
+  border: 1px solid #dadde1;
+  text-align: left;
+  margin: 50px;
+  border-radius: 5px;
+}
+.searchForm {
+  text-align: center;
+  margin-top: 50px;
+}
+ul {
+  list-style-type: none;
+}

@@ -3,8 +3,7 @@ import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
-  const [ready, setReady] = useState(false);
-  const [WeatherData, setWeatherData] = useState(null);
+  const [WeatherData, setWeatherData] = useState({ ready: false });
   let form = (
     <form>
       <input type="search" placeholder="Enter a City" autoFocus="on" />
@@ -13,21 +12,23 @@ export default function Weather() {
   );
   function handleResponse(response) {
     setWeatherData({
+      ready: true,
+      city: `London`,
+      date: `Friday 17th May 12:01`,
       temperature: Math.round(response.data.main.temp),
       description: response.data.weather[0].description,
       humidity: Math.round(response.data.main.humidity),
       wind: Math.round(response.data.wind.speed),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
-    setReady(true);
   }
-  if (ready) {
+  if (WeatherData.ready) {
     return (
       <div className="Weather">
         {form}
-        <h1 className="caps">New York</h1>
+        <h1 className="caps">{WeatherData.city}</h1>
         <ul>
-          <li className="caps">Date and Time</li>
+          <li className="caps">{WeatherData.date}</li>
           <li className="caps">{WeatherData.description}</li>
         </ul>
         <div className="row mt-3">

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import FormattedDate from "./FormattedDate.js";
 import WeatherIcon from "./WeatherIcon.js";
+import WeatherTemp from "./WeatherTemp.js";
 
 export default function WeatherInfo(props) {
   console.log(props.data.icon.icon);
@@ -23,8 +24,7 @@ export default function WeatherInfo(props) {
                 code={props.data.icon.icon}
                 alt={props.data.icon.description}
               />
-              <span className="temperature">{props.data.temperature}</span>
-              <span className="unit">°C</span>
+              <WeatherTemp celsius={props.data.temperature} />
             </div>
           </div>
         </div>

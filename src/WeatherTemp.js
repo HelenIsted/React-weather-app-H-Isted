@@ -11,9 +11,10 @@ export default function WeatherTemp(props) {
     setUnit("metric");
   }
   if (unit === "metric") {
+    let metricTemp = Math.round(props.celsius);
     return (
       <div className="weatherTempature">
-        <span className="temperature">{Math.round(props.celsius)}</span>
+        <span className="temperature">{metricTemp}</span>
         <span className="unit">
           <strong>°C</strong>|
           <a href="/" onClick={convertImperial}>
